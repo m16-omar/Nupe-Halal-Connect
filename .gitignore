@@ -1,0 +1,32 @@
+# Node/Web dependencies
+node_modules/
+dist/
+build/
+.env*.local
+
+# Python/Django dependencies
+.venv/
+venv/
+__pycache__/
+*.pyc
+db.sqlite3
+media/
+
+# Flutter/Mobile dependencies
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+mobile/build/
+ios/Flutter/Generated.xcconfig
+flutter_export_environment.sh
+
+# IDE and OS files
+.DS_Store
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
