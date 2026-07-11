@@ -30,3 +30,5 @@ flutter_export_environment.sh
 *.njsproj
 *.sln
 *.swp
+*.docx
+
