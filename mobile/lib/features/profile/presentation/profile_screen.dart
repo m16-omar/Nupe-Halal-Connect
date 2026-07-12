@@ -960,6 +960,8 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
       onTap: () {
         if (index == 0) {
           context.go('/home');
+        } else if (index == 1) {
+          context.push('/matches');
         } else {
           setState(() {
             _currentIndex = index;

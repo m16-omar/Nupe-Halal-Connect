@@ -1300,7 +1300,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     bool isSelected = _currentIndex == index;
     return GestureDetector(
       onTap: () {
-        if (index == 3) {
+        if (index == 1) {
+          context.push('/matches');
+        } else if (index == 3) {
           context.push('/profile');
         } else {
           setState(() {

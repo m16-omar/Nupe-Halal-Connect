@@ -5,6 +5,7 @@ import '../../features/onboarding/presentation/role_selection_screen.dart';
 import '../../features/onboarding/presentation/seeker_setup_screen.dart';
 import '../../features/verification/presentation/verification_screen.dart';
 import '../../features/matchmaking/presentation/home_screen.dart';
+import '../../features/matchmaking/presentation/matches_screen.dart';
 import '../../features/profile/presentation/profile_screen.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -37,6 +38,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/profile',
       builder: (context, state) => const ProfileScreen(),
+    ),
+    GoRoute(
+      path: '/matches',
+      builder: (context, state) => const MatchesScreen(),
     ),
   ],
 );
