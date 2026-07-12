@@ -797,7 +797,9 @@ class _WaliChatScreenState extends ConsumerState<WaliChatScreen> {
                   style: GoogleFonts.inter(fontSize: 8, color: AppTheme.secondaryGrey, height: 1.3),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.push('/propose-meeting');
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF042415),
                     foregroundColor: Colors.white,

@@ -8,6 +8,7 @@ import '../../features/matchmaking/presentation/home_screen.dart';
 import '../../features/matchmaking/presentation/matches_screen.dart';
 import '../../features/profile/presentation/profile_screen.dart';
 import '../../features/group_chat/presentation/wali_chat_screen.dart';
+import '../../features/meetings/presentation/propose_meeting_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/',
@@ -47,6 +48,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/wali-chat',
       builder: (context, state) => const WaliChatScreen(),
+    ),
+    GoRoute(
+      path: '/propose-meeting',
+      builder: (context, state) => const ProposeMeetingScreen(),
     ),
   ],
 );
