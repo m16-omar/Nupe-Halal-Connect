@@ -535,16 +535,19 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         minimumSize: const Size(double.infinity, 38),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(Icons.person_add_alt_1_outlined, size: 12, color: Colors.white),
-                          const SizedBox(width: 4),
-                          Text(
-                            'Send Interest Request',
-                            style: GoogleFonts.inter(fontSize: 9, fontWeight: FontWeight.bold),
-                          ),
-                        ],
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(Icons.person_add_alt_1_outlined, size: 12, color: Colors.white),
+                            const SizedBox(width: 4),
+                            Text(
+                              'Send Interest Request',
+                              style: GoogleFonts.inter(fontSize: 9, fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -853,16 +856,23 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Row(
-          children: [
-            const Icon(Icons.check, size: 8, color: Color(0xFF10B981)),
-            const SizedBox(width: 4),
-            Text(
-              title,
-              style: GoogleFonts.inter(fontSize: 8, color: AppTheme.secondaryGrey),
-            ),
-          ],
+        Expanded(
+          child: Row(
+            children: [
+              const Icon(Icons.check, size: 8, color: Color(0xFF10B981)),
+              const SizedBox(width: 4),
+              Expanded(
+                child: Text(
+                  title,
+                  style: GoogleFonts.inter(fontSize: 8, color: AppTheme.secondaryGrey),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
+              ),
+            ],
+          ),
         ),
+        const SizedBox(width: 4),
         Text(
           value,
           style: GoogleFonts.inter(fontSize: 8, fontWeight: FontWeight.bold, color: AppTheme.darkCharcoal),
