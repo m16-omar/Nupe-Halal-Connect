@@ -993,12 +993,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   Widget _buildWaliChatButton() {
     return GestureDetector(
       onTap: () {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Opening chaperoned Wali Chat session...', style: GoogleFonts.inter()),
-            backgroundColor: AppTheme.primaryGreen,
-          ),
-        );
+        context.push('/wali-chat');
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
