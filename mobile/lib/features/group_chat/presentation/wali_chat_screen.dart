@@ -63,129 +63,137 @@ class _WaliChatScreenState extends ConsumerState<WaliChatScreen> {
   Widget _buildHeader() {
     return Container(
       color: Colors.white,
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            children: [
-              IconButton(
-                icon: const Icon(Icons.arrow_back, color: AppTheme.darkCharcoal, size: 24),
-                onPressed: () => context.pop(),
-              ),
-              const SizedBox(width: 4),
-              // Overlapping avatars
-              SizedBox(
-                width: 55,
-                height: 32,
-                child: Stack(
+          IconButton(
+            icon: const Icon(Icons.arrow_back, color: AppTheme.darkCharcoal, size: 24),
+            onPressed: () => context.pop(),
+          ),
+          const SizedBox(width: 4),
+          // Overlapping avatars
+          SizedBox(
+            width: 55,
+            height: 32,
+            child: Stack(
+              children: [
+                Positioned(
+                  left: 0,
+                  child: CircleAvatar(
+                    radius: 16,
+                    backgroundImage: NetworkImage(_yusufAvatar),
+                  ),
+                ),
+                Positioned(
+                  left: 14,
+                  child: CircleAvatar(
+                    radius: 16,
+                    backgroundImage: NetworkImage(_aishaAvatar),
+                  ),
+                ),
+                Positioned(
+                  left: 28,
+                  child: CircleAvatar(
+                    radius: 16,
+                    backgroundImage: NetworkImage(_waliAvatar),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Ta\'aruf Conversation',
+                  style: GoogleFonts.outfit(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: AppTheme.darkCharcoal,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Text(
+                  'Supervised by Wali',
+                  style: GoogleFonts.inter(
+                    fontSize: 10,
+                    color: AppTheme.secondaryGrey,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Row(
                   children: [
-                    Positioned(
-                      left: 0,
-                      child: CircleAvatar(
-                        radius: 16,
-                        backgroundImage: NetworkImage(_yusufAvatar),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFE8F5E9),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 5,
+                            height: 5,
+                            decoration: const BoxDecoration(
+                              color: Color(0xFF10B981),
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            'Active',
+                            style: GoogleFonts.inter(fontSize: 7, fontWeight: FontWeight.bold, color: const Color(0xFF2E7D32)),
+                          ),
+                        ],
                       ),
                     ),
-                    Positioned(
-                      left: 14,
-                      child: CircleAvatar(
-                        radius: 16,
-                        backgroundImage: NetworkImage(_aishaAvatar),
+                    const SizedBox(width: 4),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFF1F3F0),
+                        borderRadius: BorderRadius.circular(8),
                       ),
-                    ),
-                    Positioned(
-                      left: 28,
-                      child: CircleAvatar(
-                        radius: 16,
-                        backgroundImage: NetworkImage(_waliAvatar),
+                      child: Row(
+                        children: [
+                          const Icon(Icons.people_outline, size: 7, color: AppTheme.secondaryGrey),
+                          const SizedBox(width: 4),
+                          Text(
+                            '3 Members',
+                            style: GoogleFonts.inter(fontSize: 7, fontWeight: FontWeight.bold, color: AppTheme.secondaryGrey),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
-              ),
-              const SizedBox(width: 8),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Ta\'aruf Conversation',
-                    style: GoogleFonts.outfit(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: AppTheme.darkCharcoal,
-                    ),
-                  ),
-                  Text(
-                    'Supervised by Wali',
-                    style: GoogleFonts.inter(
-                      fontSize: 11,
-                      color: AppTheme.secondaryGrey,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Row(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFE8F5E9),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Row(
-                          children: [
-                            Container(
-                              width: 6,
-                              height: 6,
-                              decoration: const BoxDecoration(
-                                color: Color(0xFF10B981),
-                                shape: BoxShape.circle,
-                              ),
-                            ),
-                            const SizedBox(width: 4),
-                            Text(
-                              'Active',
-                              style: GoogleFonts.inter(fontSize: 8, fontWeight: FontWeight.bold, color: const Color(0xFF2E7D32)),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 6),
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFF1F3F0),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Row(
-                          children: [
-                            const Icon(Icons.people_outline, size: 8, color: AppTheme.secondaryGrey),
-                            const SizedBox(width: 4),
-                            Text(
-                              '3 Members',
-                              style: GoogleFonts.inter(fontSize: 8, fontWeight: FontWeight.bold, color: AppTheme.secondaryGrey),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
+              ],
+            ),
           ),
+          const SizedBox(width: 4),
           Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
               IconButton(
-                icon: const Icon(Icons.phone_outlined, color: AppTheme.darkCharcoal, size: 22),
+                constraints: const BoxConstraints(),
+                padding: const EdgeInsets.all(4),
+                icon: const Icon(Icons.phone_outlined, color: AppTheme.darkCharcoal, size: 20),
                 onPressed: () {},
               ),
               IconButton(
-                icon: const Icon(Icons.videocam_outlined, color: AppTheme.darkCharcoal, size: 22),
+                constraints: const BoxConstraints(),
+                padding: const EdgeInsets.all(4),
+                icon: const Icon(Icons.videocam_outlined, color: AppTheme.darkCharcoal, size: 20),
                 onPressed: () {},
               ),
               IconButton(
-                icon: const Icon(Icons.more_vert, color: AppTheme.darkCharcoal, size: 22),
+                constraints: const BoxConstraints(),
+                padding: const EdgeInsets.all(4),
+                icon: const Icon(Icons.more_vert, color: AppTheme.darkCharcoal, size: 20),
                 onPressed: () {},
               ),
             ],
