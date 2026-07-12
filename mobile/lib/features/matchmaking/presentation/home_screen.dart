@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:go_router/go_router.dart';
 import '../../../app/theme/app_theme.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
@@ -650,8 +651,24 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   Widget _buildCandidateCard(Map<String, dynamic> candidate) {
-    return Container(
-      width: 165,
+    return GestureDetector(
+      onTap: () {
+        if (candidate['name'] == 'Aisha') {
+          context.push('/profile');
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Profile for ${candidate['name']} is mocked. Opening Aisha\'s profile instead for testing.', style: GoogleFonts.inter()),
+              action: SnackBarAction(
+                label: 'View',
+                onPressed: () => context.push('/profile'),
+              ),
+            ),
+          );
+        }
+      },
+      child: Container(
+        width: 165,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
@@ -789,8 +806,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           ],
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 
   // --- DAILY ISLAMIC REMINDER ---
   Widget _buildDailyReminderCard() {
@@ -1282,9 +1300,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     bool isSelected = _currentIndex == index;
     return GestureDetector(
       onTap: () {
-        setState(() {
-          _currentIndex = index;
-        });
+        if (index == 3) {
+          context.push('/profile');
+        } else {
+          setState(() {
+            _currentIndex = index;
+          });
+        }
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
